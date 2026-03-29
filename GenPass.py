@@ -27,7 +27,6 @@ botao.pack()
 resultado.pack()
 janela.mainloop()
 
-print('teste')
 
 
     #   def genpass(tamanho):
