@@ -27,8 +27,9 @@ botao.pack()
 resultado.pack()
 janela.mainloop()
 
+print('teste')
 
-    
+
     #   def genpass(tamanho):
     #         letras = string.ascii_letters + string.digits + string.punctuation
     #         password = ''.join(random.choice(letras) for _ in range(tamanho))
