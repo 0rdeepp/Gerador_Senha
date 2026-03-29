@@ -17,7 +17,7 @@ def genpass():
         password = gerar_senha(tamanho_pass)
         resultado.config(text=password)
     except:
-        resultado.config(text="não aceito letra >:| digita NÚMERO RAPA! ")
+        resultado.config(text="não aceito letra >:|")
 
 campo = tk.Entry(janela)
 campo.pack()
