@@ -17,7 +17,7 @@ def genpass():
         password = gerar_senha(tamanho_pass)
         resultado.config(text=password)
     except:
-        resultado.config(text="não aceito letra >:| digita NÚMERO RAPA! ")
+        resultado.config(text="não aceito letra >:|")
 
 campo = tk.Entry(janela)
 campo.pack()
@@ -26,17 +26,4 @@ resultado = tk.Label(janela, text="")
 botao.pack()
 resultado.pack()
 janela.mainloop()
-
-
-
-
-    
-    #   def genpass(tamanho):
-    #         letras = string.ascii_letters + string.digits + string.punctuation
-    #         password = ''.join(random.choice(letras) for _ in range(tamanho))
-    #         return password
-
-    #     tamanho_pass = int(input("digite o tamanho da senha"))
-    #     pass_gensucess = genpass(tamanho_pass)
-    #     print(f"senha gerada {pass_gensucess}")
 
