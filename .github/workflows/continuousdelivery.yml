@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main #branch principal 
+  workflow_dispatch:
 
 jobs:
   deliver:
@@ -16,7 +17,7 @@ jobs:
         with:
           name: Projeto_zipado.zip
           path: |
-            **.py
+            **/*.py
             README.md
 
   deploy:
