@@ -37,6 +37,6 @@ janela.mainloop()
     #     tamanho_pass = int(input("digite o tamanho da senha"))
     #     pass_gensucess = genpass(tamanho_pass)
     #     print(f"senha gerada {pass_gensucess}")
-
+    #     print(f"senha gerada {pass_gensucess}")
 
 
