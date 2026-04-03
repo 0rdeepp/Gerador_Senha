@@ -1,0 +1,21 @@
+name: Continuos delivery
+on:
+  push:
+    branches:
+      - main #branch principal 
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Check out repository code
+          uses: actions/checkout@v4
+
+        - name: Continuos delivery
+        - uses: actions/upload-artifact@v4
+          with:
+            name: Projeto zipado.zip
+            path: |
+              '**.py'
+              README.md
+              
