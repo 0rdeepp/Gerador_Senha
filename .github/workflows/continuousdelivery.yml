@@ -1,32 +1,46 @@
-name: Continuos delivery
+name: Continuous delivery
+
 on:
   push:
     branches:
-      - main #branch principal 
-  workflow_dispatch:
+      - main            # CD roda aqui
+  pull_request:
+    branches:
+      - '*'             # CI roda em qualquer branch
 
 jobs:
   deliver:
+    name: 📦 Build e Artifact
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out repository code
+      - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Upload continuous delivery
+      - name: Verificar arquivos
+        run: ls -R
+
+      - name: Upload do artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Projeto_zipado.zip
+          name: Projeto_zipado
           path: |
             **/*.py
             README.md
 
   deploy:
+    name: 🚀 Deploy
     runs-on: ubuntu-latest
     needs: deliver
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: Projeto_zipado.zip
 
-      - name: Display structure of downloaded files
+    # 🔥 Só executa deploy na main (produção)
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Download do artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: Projeto_zipado
+
+      - name: Exibir arquivos
         run: ls -R
