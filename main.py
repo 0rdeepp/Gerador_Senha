@@ -1,31 +1,21 @@
 import random
 import string
-import tkinter as tk
-
-
-janela = tk.Tk()
-janela.title("Gerador de senhas")
 
 def gerar_senha(tamanho_pass):
     letras = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(random.choice(letras) for _ in range(tamanho_pass))
     return password
 
-def genpass():
+def main():
     try:
-        tamanho_pass = int(campo.get())
+        tamanho_pass = int(input("Digite o tamanho da senha: "))
         password = gerar_senha(tamanho_pass)
-        resultado.config(text=password)
-    except:
-        resultado.config(text="não aceito letra >:|")
+        print(f"Senha gerada: {password}")
+    except ValueError:
+        print("apenas numeros seu tolo :|")
 
-campo = tk.Entry(janela)
-campo.pack()
-botao = tk.Button(janela, text="Clique em mim", command=genpass)
-resultado = tk.Label(janela, text="")
-botao.pack()
-resultado.pack()
-janela.mainloop()
+if __name__ == "__main__":
+    main()
 
 
 
