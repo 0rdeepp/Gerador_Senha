@@ -45,17 +45,18 @@ jobs:
       - name: Exibir arquivos
         run: ls -R
 
-    buildx: # docker
-      # needs: deploy só roda apenas quando completar o Deploy
-      runs-on: ubuntu-latest
-      steps:
-      -
-        # Add support for more platforms with QEMU (optional)
-        # https://github.com/docker/setup-qemu-action
-        name: Set up QEMU
+  buildx: # docker
+    # needs: deploy só roda apenas quando completar o Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+      # Add support for more platforms with QEMU (optional)
+      # https://github.com/docker/setup-qemu-action
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
-      -
-        name: Set up Docker Buildx
+        
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
       #-name: Login to Docker Hub
@@ -63,8 +64,7 @@ jobs:
         #with:
           #username: ${{ vars.DOCKERHUB_USERNAME }}
           #password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
+      - name: Build and push # Build Docker image
         uses: docker/build-push-action@v7
         with:
           context: .
