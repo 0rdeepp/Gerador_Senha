@@ -10,3 +10,4 @@ jobs:
         uses: johnnyhuy/actions-discord-git-webhook@main
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          repo_name: repository_special_and_GenPass
