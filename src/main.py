@@ -12,7 +12,7 @@ def main():
         password = gerar_senha(tamanho_pass)
         print(f"Senha gerada: {password}")
     except ValueError:
-        print("apenas numeros seu tolo :|")
+        print("Letra não é número, somente NÚMEROS seu tolo :|")
 
 if __name__ == "__main__":
     main()
@@ -30,3 +30,4 @@ if __name__ == "__main__":
     #     print(f"senha gerada {pass_gensucess}")
 
 
+''
